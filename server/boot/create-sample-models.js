@@ -2,7 +2,7 @@
  * Created by drmischer on 10.07.2016.
  */
 var async = require('async');
-module.exports = function(app) {
+module.exports = function (app) {
   //data sources
   var mongods = app.dataSources.mongods;
   //create all models
@@ -11,15 +11,15 @@ module.exports = function(app) {
     simpleusers: async.apply(createSimpleUsers),
     admins: async.apply(createAdmin),
     taskgroups: async.apply(createTaskGroups)
-  }, function(err, results) {
+  }, function (err, results) {
     if (err) throw err;
-    createTasks(results.taskgroups, function(err) {
+    createTasks(results.taskgroups, function (err) {
       console.log('> models created sucessfully');
     });
   });
   //create tasks
   function createTasks(taskgroups, cb) {
-    mongods.automigrate('Task', function(err) {
+    mongods.automigrate('Task', function (err) {
       if (err) return cb(err);
       var task = app.models.Task;
       task.create([
@@ -29,30 +29,33 @@ module.exports = function(app) {
       ], cb);
     });
   }
+
   //create simpleUsers
   function createSimpleUsers(cb) {
-    mongods.automigrate('Simpleuser', function(err) {
+    mongods.automigrate('Simpleuser', function (err) {
       if (err) return cb(err);
       var simpleUser = app.models.Simpleuser;
       simpleUser.create([
-        {firstname: 'Mikhail', lastname: 'Kultiyasov', email:'mischer86@gmail.com', password: '1'},
-        {firstname: 'Maxim', lastname: 'Sharai', email:'sharai.maxim@gmail.com', password:'2'}
+        {firstname: 'Mikhail', lastname: 'Kultiyasov', email: 'mischer86@gmail.com', password: '1'},
+        {firstname: 'Maxim', lastname: 'Sharai', email: 'sharai.maxim@gmail.com', password: '2'}
       ], cb);
     });
   }
+
   //create Admin
   function createAdmin(cb) {
-    mongods.automigrate('Admin', function(err) {
+    mongods.automigrate('Admin', function (err) {
       if (err) return cb(err);
       var admin = app.models.Admin;
       admin.create([
-        {firstname: 'Vitaly', lastname: 'Rydvan', email:'v.rydvan@gmail.com', password: '3'}
+        {firstname: 'Vitaly', lastname: 'Rydvan', email: 'v.rydvan@gmail.com', password: '3'}
       ], cb);
     });
   }
+
   //create taskgroups
   function createTaskGroups(cb) {
-    mongods.automigrate('Taskgroup', function(err) {
+    mongods.automigrate('Taskgroup', function (err) {
       if (err) return cb(err);
       var taskgroup = app.models.Taskgroup;
       taskgroup.create([
@@ -67,16 +70,17 @@ module.exports = function(app) {
       ], cb);
     });
   }
+
   //create Task and Task group relations
- /* function createTaskRelations(taskgroups, cb) {
-    mongods.autoupdate('Task', function(err) {
-      if (err) return cb(err);
-      var task = app.models.Task;
-      task.updateAll([
-        {
-          taskGroupIdd: taskgroups[0].id
-        }
-      ], cb);
-    });
-  }*/
+  /* function createTaskRelations(taskgroups, cb) {
+   mongods.autoupdate('Task', function(err) {
+   if (err) return cb(err);
+   var task = app.models.Task;
+   task.updateAll([
+   {
+   taskGroupIdd: taskgroups[0].id
+   }
+   ], cb);
+   });
+   }*/
 };
