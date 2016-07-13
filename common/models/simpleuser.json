@@ -1,0 +1,29 @@
+{
+  "name": "Simpleuser",
+  "plural": "Yes",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "taskgroups": {
+      "type": "hasMany",
+      "model": "Taskgroup",
+      "foreignKey": "simpleUserId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
