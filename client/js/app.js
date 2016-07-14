@@ -11,10 +11,10 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
-      .state('add-review', {
-        url: '/add-review',
-        templateUrl: 'views/review-form.html',
-        controller: 'AddReviewController',
+      .state('main', {
+        url: '/main',
+        templateUrl: 'views/main.html',
+        controller: 'AllGroupController',
         authenticate: true
       })
       .state('all-reviews', {
@@ -46,10 +46,10 @@ angular
         url: '/logout',
         controller: 'AuthLogoutController'
       })
-      .state('my-reviews', {
-        url: '/my-reviews',
-        templateUrl: 'views/my-reviews.html',
-        controller: 'MyReviewsController',
+      .state('my-groups', {
+        url: '/my-groups',
+        templateUrl: 'views/my-groups.html',
+        controller: 'MyGroupsController',
         authenticate: true
       })
       .state('sign-up', {
