@@ -46,10 +46,16 @@ angular
         url: '/logout',
         controller: 'AuthLogoutController'
       })
-      .state('my-groups', {
+      .state('main.my-groups', {
         url: '/my-groups',
         templateUrl: 'views/my-groups.html',
         controller: 'MyGroupsController',
+        authenticate: true
+      })
+      .state('main.my-tasks', {
+        url: '/my-tasks',
+        templateUrl: 'views/my-tasks.html',
+        controller: 'MyTasksController',
         authenticate: true
       })
       .state('sign-up', {
