@@ -119,4 +119,30 @@ angular
           ]
         }
       });
+    }])
+  .controller('CreateGroupController', ['$scope', 'TaskGroup', '$rootScope',
+    function ($scope, TaskGroup, $rootScope) {
+      /*    $scope.tasks = Task.find({
+       filter: {
+       /!*          where: {
+       taskGroupId: $rootScope.currentUser.id
+       },*!/
+       include: [
+       'taskgroup'
+       ]
+       }
+       });*/
+    }])
+  .controller('CreateTaskController', ['$scope', 'Task', '$rootScope',
+    function ($scope, Task, $rootScope) {
+      /*    $scope.tasks = Task.find({
+       filter: {
+       /!*          where: {
+       taskGroupId: $rootScope.currentUser.id
+       },*!/
+       include: [
+       'taskgroup'
+       ]
+       }
+       });*/
     }]);

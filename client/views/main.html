@@ -35,6 +35,12 @@
           <li ng-show="currentUser">
             <a ui-sref=".my-tasks" ui-sref-active="active">My tasks</a>
           </li>
+          <li ng-show="currentUser">
+            <a ui-sref=".create-group" ui-sref-active="active">Create group</a>
+          </li>
+          <li ng-show="currentUser">
+            <a ui-sref=".create-task" ui-sref-active="active">Create task</a>
+          </li>
         </ul>
       </div>
       <main ui-view></main>

@@ -58,6 +58,18 @@ angular
         controller: 'MyTasksController',
         authenticate: true
       })
+      .state('main.create-group', {
+        url: '/create-group',
+        templateUrl: 'views/create-group.html',
+        controller: 'CreateGroupController',
+        authenticate: true
+      })
+      .state('main.create-task', {
+        url: '/create-task',
+        templateUrl: 'views/create-task.html',
+        controller: 'CreateTaskController',
+        authenticate: true
+      })
       .state('sign-up', {
         url: '/sign-up',
         templateUrl: 'views/sign-up-form.html',
