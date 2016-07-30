@@ -17,22 +17,6 @@ angular
         controller: 'AllGroupController',
         authenticate: true
       })
-      .state('all-reviews', {
-        url: '/all-reviews',
-        templateUrl: 'views/all-reviews.html',
-        controller: 'AllReviewsController'
-      })
-      .state('edit-review', {
-        url: '/edit-review/:id',
-        templateUrl: 'views/review-form.html',
-        controller: 'EditReviewController',
-        authenticate: true
-      })
-      .state('delete-review', {
-        url: '/delete-review/:id',
-        controller: 'DeleteReviewController',
-        authenticate: true
-      })
       .state('forbidden', {
         url: '/forbidden',
         templateUrl: 'views/forbidden.html',
@@ -60,13 +44,13 @@ angular
       })
       .state('main.create-group', {
         url: '/create-group',
-        templateUrl: 'views/create-group.html',
+        templateUrl: 'views/group.html',
         controller: 'CreateGroupController',
         authenticate: true
       })
       .state('main.create-task', {
         url: '/create-task',
-        templateUrl: 'views/create-task.html',
+        templateUrl: 'views/task.html',
         controller: 'CreateTaskController',
         authenticate: true
       })

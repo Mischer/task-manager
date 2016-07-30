@@ -120,29 +120,33 @@ angular
         }
       });
     }])
-  .controller('CreateGroupController', ['$scope', 'TaskGroup', '$rootScope',
-    function ($scope, TaskGroup, $rootScope) {
-      /*    $scope.tasks = Task.find({
-       filter: {
-       /!*          where: {
-       taskGroupId: $rootScope.currentUser.id
-       },*!/
-       include: [
-       'taskgroup'
-       ]
-       }
-       });*/
+  .controller('CreateGroupController', ['$scope', 'Taskgroup', '$state',
+    function ($scope, Taskgroup, $state) {
+      $scope.action = 'Add';
+
+      $scope.submitForm = function() {
+        Taskgroup.create({
+          title: $scope.taskGroup.title,
+          status: $scope.taskGroup.status
+        })
+          .$promise
+          .then(function() {
+            $state.go('main.my-groups');
+          });
+      };
     }])
-  .controller('CreateTaskController', ['$scope', 'Task', '$rootScope',
-    function ($scope, Task, $rootScope) {
-      /*    $scope.tasks = Task.find({
-       filter: {
-       /!*          where: {
-       taskGroupId: $rootScope.currentUser.id
-       },*!/
-       include: [
-       'taskgroup'
-       ]
-       }
-       });*/
+  .controller('CreateTaskController', ['$scope', 'Task', '$state',
+    function($scope, Task, $state) {
+      $scope.action = 'Add';
+
+      $scope.submitForm = function() {
+        Task.create({
+            title: $scope.task.title,
+            status: $scope.task.status
+          })
+          .$promise
+          .then(function() {
+            $state.go('main.my-tasks');
+          });
+      };
     }]);

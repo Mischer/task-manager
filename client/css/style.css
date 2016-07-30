@@ -103,3 +103,10 @@ main select,
 textarea {
   width:300px;
 }
+
+
+.form-entity {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
