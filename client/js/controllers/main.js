@@ -8,85 +8,40 @@
 
 angular
   .module('app')
-  .controller('AllGroupController', ['$scope', '$rootScope', function($scope, $rootScope) {
+  .controller('MainController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.screenName = $rootScope.currentUser.email;
   }])
-  .controller('AddReviewController', ['$scope', 'CoffeeShop', 'Review',
-    '$state', function($scope, CoffeeShop, Review, $state) {
-      $scope.action = 'Add';
-      $scope.coffeeShops = [];
-      $scope.selectedShop;
-      $scope.review = {};
-      $scope.isDisabled = false;
 
-      CoffeeShop
-        .find()
+  .controller('DeleteGroupController', ['$scope', 'Taskgroup', '$state',
+    '$stateParams', function ($scope, Taskgroup, $state, $stateParams) {
+      Taskgroup.deleteById({id: $stateParams.id})
         .$promise
-        .then(function(coffeeShops) {
-          $scope.coffeeShops = coffeeShops;
-          $scope.selectedShop = $scope.selectedShop || coffeeShops[0];
-        });
-
-      $scope.submitForm = function() {
-        Review
-          .create({
-            rating: $scope.review.rating,
-            comments: $scope.review.comments,
-            coffeeShopId: $scope.selectedShop.id
-          })
-          .$promise
-          .then(function() {
-            $state.go('all-reviews');
-          });
-      };
-    }])
-  .controller('DeleteReviewController', ['$scope', 'Review', '$state',
-    '$stateParams', function($scope, Review, $state, $stateParams) {
-      Review
-        .deleteById({ id: $stateParams.id })
-        .$promise
-        .then(function() {
-          $state.go('my-reviews');
+        .then(function () {
+          $state.go('main.my-groups');
         });
     }])
-  .controller('EditReviewController', ['$scope', '$q', 'CoffeeShop', 'Review',
-    '$stateParams', '$state', function($scope, $q, CoffeeShop, Review,
-                                       $stateParams, $state) {
+  .controller('EditGroupController', ['$scope', '$q', 'Taskgroup', '$stateParams', '$state',
+    function ($scope, $q, Taskgroup, $stateParams, $state) {
       $scope.action = 'Edit';
-      $scope.coffeeShops = [];
-      $scope.selectedShop;
-      $scope.review = {};
-      $scope.isDisabled = true;
+      $scope.taskGroup = {};
 
-      $q
-        .all([
-          CoffeeShop.find().$promise,
-          Review.findById({ id: $stateParams.id }).$promise
-        ])
-        .then(function(data) {
-          var coffeeShops = $scope.coffeeShops = data[0];
-          $scope.review = data[1];
-          $scope.selectedShop;
-
-          var selectedShopIndex = coffeeShops
-            .map(function(coffeeShop) {
-              return coffeeShop.id;
-            })
-            .indexOf($scope.review.coffeeShopId);
-          $scope.selectedShop = coffeeShops[selectedShopIndex];
+      $q.all([
+        Taskgroup.findById({id: $stateParams.id}).$promise
+      ])
+        .then(function (data) {
+          $scope.taskGroup = data[0];
         });
 
-      $scope.submitForm = function() {
-        $scope.review.coffeeShopId = $scope.selectedShop.id;
-        $scope.review
+      $scope.submitForm = function () {
+        $scope.taskGroup
           .$save()
-          .then(function(review) {
-            $state.go('all-reviews');
+          .then(function (taskGroup) {
+            $state.go('main.my-groups');
           });
       };
     }])
   .controller('MyGroupsController', ['$scope', 'Taskgroup', '$rootScope',
-    function($scope, Taskgroup, $rootScope) {
+    function ($scope, Taskgroup, $rootScope) {
       $scope.taskgroups = Taskgroup.find({
         filter: {
           where: {
@@ -96,12 +51,12 @@ angular
       });
     }])
   .controller('MyTasksController', ['$scope', 'Task', '$rootScope',
-    function($scope, Task, $rootScope) {
+    function ($scope, Task, $rootScope) {
       $scope.tasks = Task.find({
         filter: {
-/*          where: {
-                    taskGroupId: $rootScope.currentUser.id
-          },*/
+          /*          where: {
+           taskGroupId: $rootScope.currentUser.id
+           },*/
           include: [
             'taskgroup'
           ]
@@ -112,28 +67,28 @@ angular
     function ($scope, Taskgroup, $state) {
       $scope.action = 'Add';
 
-      $scope.submitForm = function() {
+      $scope.submitForm = function () {
         Taskgroup.create({
           title: $scope.taskGroup.title,
           status: $scope.taskGroup.status
         })
           .$promise
-          .then(function() {
+          .then(function () {
             $state.go('main.my-groups');
           });
       };
     }])
   .controller('CreateTaskController', ['$scope', 'Task', '$state',
-    function($scope, Task, $state) {
+    function ($scope, Task, $state) {
       $scope.action = 'Add';
 
-      $scope.submitForm = function() {
+      $scope.submitForm = function () {
         Task.create({
-            title: $scope.task.title,
-            status: $scope.task.status
-          })
+          title: $scope.task.title,
+          status: $scope.task.status
+        })
           .$promise
-          .then(function() {
+          .then(function () {
             $state.go('main.my-tasks');
           });
       };

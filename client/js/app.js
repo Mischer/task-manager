@@ -14,7 +14,7 @@ angular
       .state('main', {
         url: '/main',
         templateUrl: 'views/main.html',
-        controller: 'AllGroupController',
+        controller: 'MainController',
         authenticate: true
       })
       .state('forbidden', {
@@ -46,6 +46,17 @@ angular
         url: '/create-group',
         templateUrl: 'views/group.html',
         controller: 'CreateGroupController',
+        authenticate: true
+      })
+      .state('main.edit-group', {
+        url: '/edit-group/:id',
+        templateUrl: 'views/group.html',
+        controller: 'EditGroupController',
+        authenticate: true
+      })
+      .state('main.delete-group', {
+        url: '/delete-group/:id',
+        controller: 'DeleteGroupController',
         authenticate: true
       })
       .state('main.create-task', {

@@ -8,15 +8,25 @@
         <tr>
           <th>Title</th>
           <th>Status</th>
+          <th>Actions</th>
         </tr>
         </thead>
         <tbody ng-repeat="g in taskgroups.slice().reverse()">
         <tr>
           <td>{{g.title}}</td>
           <td>{{g.status}}</td>
+          <td>
+            <div class="actions" ng-show="currentUser">
+              <button ui-sref="main.edit-group({ id: g.id })">Edit</button>
+              <button a ui-sref="main.delete-group({ id: g.id })">Delete</button>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>
+
     </div>
+
+
   </div>
   <section>
