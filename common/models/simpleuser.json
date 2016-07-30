@@ -1,6 +1,6 @@
 {
   "name": "Simpleuser",
-  "plural": "Yes",
+  "plural": "taskUser",
   "base": "User",
   "idInjection": true,
   "options": {

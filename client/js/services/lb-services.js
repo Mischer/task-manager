@@ -2651,7 +2651,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/taskgroups/:fk",
+          url: urlBase + "/taskUser/:id/taskgroups/:fk",
           method: "GET"
         },
 
@@ -2660,7 +2660,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/taskgroups/:fk",
+          url: urlBase + "/taskUser/:id/taskgroups/:fk",
           method: "DELETE"
         },
 
@@ -2669,39 +2669,39 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/taskgroups/:fk",
+          url: urlBase + "/taskUser/:id/taskgroups/:fk",
           method: "PUT"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups() instead.
         "::get::Simpleuser::taskgroups": {
           isArray: true,
-          url: urlBase + "/Yes/:id/taskgroups",
+          url: urlBase + "/taskUser/:id/taskgroups",
           method: "GET"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups.create() instead.
         "::create::Simpleuser::taskgroups": {
-          url: urlBase + "/Yes/:id/taskgroups",
+          url: urlBase + "/taskUser/:id/taskgroups",
           method: "POST"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups.createMany() instead.
         "::createMany::Simpleuser::taskgroups": {
           isArray: true,
-          url: urlBase + "/Yes/:id/taskgroups",
+          url: urlBase + "/taskUser/:id/taskgroups",
           method: "POST"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups.destroyAll() instead.
         "::delete::Simpleuser::taskgroups": {
-          url: urlBase + "/Yes/:id/taskgroups",
+          url: urlBase + "/taskUser/:id/taskgroups",
           method: "DELETE"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups.count() instead.
         "::count::Simpleuser::taskgroups": {
-          url: urlBase + "/Yes/:id/taskgroups/count",
+          url: urlBase + "/taskUser/:id/taskgroups/count",
           method: "GET"
         },
       }
@@ -3265,7 +3265,7 @@ module.factory(
   "Simpleuser",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/Yes/:id",
+      urlBase + "/taskUser/:id",
       { 'id': '@id' },
       {
 
@@ -3303,7 +3303,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/accessTokens/:fk",
+          url: urlBase + "/taskUser/:id/accessTokens/:fk",
           method: "GET"
         },
 
@@ -3338,7 +3338,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/accessTokens/:fk",
+          url: urlBase + "/taskUser/:id/accessTokens/:fk",
           method: "DELETE"
         },
 
@@ -3380,7 +3380,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/accessTokens/:fk",
+          url: urlBase + "/taskUser/:id/accessTokens/:fk",
           method: "PUT"
         },
 
@@ -3389,7 +3389,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/taskgroups/:fk",
+          url: urlBase + "/taskUser/:id/taskgroups/:fk",
           method: "GET"
         },
 
@@ -3398,7 +3398,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/taskgroups/:fk",
+          url: urlBase + "/taskUser/:id/taskgroups/:fk",
           method: "DELETE"
         },
 
@@ -3407,7 +3407,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/taskgroups/:fk",
+          url: urlBase + "/taskUser/:id/taskgroups/:fk",
           method: "PUT"
         },
 
@@ -3443,7 +3443,7 @@ module.factory(
          */
         "prototype$__get__accessTokens": {
           isArray: true,
-          url: urlBase + "/Yes/:id/accessTokens",
+          url: urlBase + "/taskUser/:id/accessTokens",
           method: "GET"
         },
 
@@ -3480,7 +3480,7 @@ module.factory(
          * </em>
          */
         "prototype$__create__accessTokens": {
-          url: urlBase + "/Yes/:id/accessTokens",
+          url: urlBase + "/taskUser/:id/accessTokens",
           method: "POST"
         },
 
@@ -3510,7 +3510,7 @@ module.factory(
          * This method returns no data.
          */
         "prototype$__delete__accessTokens": {
-          url: urlBase + "/Yes/:id/accessTokens",
+          url: urlBase + "/taskUser/:id/accessTokens",
           method: "DELETE"
         },
 
@@ -3544,32 +3544,32 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "prototype$__count__accessTokens": {
-          url: urlBase + "/Yes/:id/accessTokens/count",
+          url: urlBase + "/taskUser/:id/accessTokens/count",
           method: "GET"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups() instead.
         "prototype$__get__taskgroups": {
           isArray: true,
-          url: urlBase + "/Yes/:id/taskgroups",
+          url: urlBase + "/taskUser/:id/taskgroups",
           method: "GET"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups.create() instead.
         "prototype$__create__taskgroups": {
-          url: urlBase + "/Yes/:id/taskgroups",
+          url: urlBase + "/taskUser/:id/taskgroups",
           method: "POST"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups.destroyAll() instead.
         "prototype$__delete__taskgroups": {
-          url: urlBase + "/Yes/:id/taskgroups",
+          url: urlBase + "/taskUser/:id/taskgroups",
           method: "DELETE"
         },
 
         // INTERNAL. Use Simpleuser.taskgroups.count() instead.
         "prototype$__count__taskgroups": {
-          url: urlBase + "/Yes/:id/taskgroups/count",
+          url: urlBase + "/taskUser/:id/taskgroups/count",
           method: "GET"
         },
 
@@ -3607,7 +3607,7 @@ module.factory(
          * </em>
          */
         "create": {
-          url: urlBase + "/Yes",
+          url: urlBase + "/taskUser",
           method: "POST"
         },
 
@@ -3646,7 +3646,7 @@ module.factory(
          */
         "createMany": {
           isArray: true,
-          url: urlBase + "/Yes",
+          url: urlBase + "/taskUser",
           method: "POST"
         },
 
@@ -3679,7 +3679,7 @@ module.factory(
          * </em>
          */
         "patchOrCreate": {
-          url: urlBase + "/Yes",
+          url: urlBase + "/taskUser",
           method: "PATCH"
         },
 
@@ -3717,7 +3717,7 @@ module.factory(
          * </em>
          */
         "replaceOrCreate": {
-          url: urlBase + "/Yes/replaceOrCreate",
+          url: urlBase + "/taskUser/replaceOrCreate",
           method: "POST"
         },
 
@@ -3749,7 +3749,7 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/Yes/:id/exists",
+          url: urlBase + "/taskUser/:id/exists",
           method: "GET"
         },
 
@@ -3784,7 +3784,7 @@ module.factory(
          * </em>
          */
         "findById": {
-          url: urlBase + "/Yes/:id",
+          url: urlBase + "/taskUser/:id",
           method: "GET"
         },
 
@@ -3821,7 +3821,7 @@ module.factory(
          * </em>
          */
         "replaceById": {
-          url: urlBase + "/Yes/:id/replace",
+          url: urlBase + "/taskUser/:id/replace",
           method: "POST"
         },
 
@@ -3855,7 +3855,7 @@ module.factory(
          */
         "find": {
           isArray: true,
-          url: urlBase + "/Yes",
+          url: urlBase + "/taskUser",
           method: "GET"
         },
 
@@ -3888,7 +3888,7 @@ module.factory(
          * </em>
          */
         "findOne": {
-          url: urlBase + "/Yes/findOne",
+          url: urlBase + "/taskUser/findOne",
           method: "GET"
         },
 
@@ -3922,7 +3922,7 @@ module.factory(
          * The number of instances updated
          */
         "updateAll": {
-          url: urlBase + "/Yes/update",
+          url: urlBase + "/taskUser/update",
           method: "POST"
         },
 
@@ -3955,7 +3955,7 @@ module.factory(
          * </em>
          */
         "deleteById": {
-          url: urlBase + "/Yes/:id",
+          url: urlBase + "/taskUser/:id",
           method: "DELETE"
         },
 
@@ -3987,7 +3987,7 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/Yes/count",
+          url: urlBase + "/taskUser/count",
           method: "GET"
         },
 
@@ -4022,7 +4022,7 @@ module.factory(
          * </em>
          */
         "prototype$patchAttributes": {
-          url: urlBase + "/Yes/:id",
+          url: urlBase + "/taskUser/:id",
           method: "PATCH"
         },
 
@@ -4059,7 +4059,7 @@ module.factory(
          *  - `changes` – `{ReadableStream=}` - 
          */
         "createChangeStream": {
-          url: urlBase + "/Yes/change-stream",
+          url: urlBase + "/taskUser/change-stream",
           method: "POST"
         },
 
@@ -4115,7 +4115,7 @@ module.factory(
               return response.resource;
             }
           },
-          url: urlBase + "/Yes/login",
+          url: urlBase + "/taskUser/login",
           method: "POST"
         },
 
@@ -4157,7 +4157,7 @@ module.factory(
               return response.resource;
             }
           },
-          url: urlBase + "/Yes/logout",
+          url: urlBase + "/taskUser/logout",
           method: "POST"
         },
 
@@ -4191,7 +4191,7 @@ module.factory(
          * This method returns no data.
          */
         "confirm": {
-          url: urlBase + "/Yes/confirm",
+          url: urlBase + "/taskUser/confirm",
           method: "GET"
         },
 
@@ -4226,7 +4226,7 @@ module.factory(
          * This method returns no data.
          */
         "resetPassword": {
-          url: urlBase + "/Yes/reset",
+          url: urlBase + "/taskUser/reset",
           method: "POST"
         },
 
@@ -4257,7 +4257,7 @@ module.factory(
          *   from the server.
          */
         "getCurrent": {
-           url: urlBase + "/Yes" + "/:id",
+           url: urlBase + "/taskUser" + "/:id",
            method: "GET",
            params: {
              id: function() {
@@ -4840,7 +4840,7 @@ module.factory(
   "Admin",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/Yes/:id",
+      urlBase + "/admin/:id",
       { 'id': '@id' },
       {
 
@@ -4878,7 +4878,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/accessTokens/:fk",
+          url: urlBase + "/admin/:id/accessTokens/:fk",
           method: "GET"
         },
 
@@ -4913,7 +4913,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/accessTokens/:fk",
+          url: urlBase + "/admin/:id/accessTokens/:fk",
           method: "DELETE"
         },
 
@@ -4955,7 +4955,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/Yes/:id/accessTokens/:fk",
+          url: urlBase + "/admin/:id/accessTokens/:fk",
           method: "PUT"
         },
 
@@ -4991,7 +4991,7 @@ module.factory(
          */
         "prototype$__get__accessTokens": {
           isArray: true,
-          url: urlBase + "/Yes/:id/accessTokens",
+          url: urlBase + "/admin/:id/accessTokens",
           method: "GET"
         },
 
@@ -5028,7 +5028,7 @@ module.factory(
          * </em>
          */
         "prototype$__create__accessTokens": {
-          url: urlBase + "/Yes/:id/accessTokens",
+          url: urlBase + "/admin/:id/accessTokens",
           method: "POST"
         },
 
@@ -5058,7 +5058,7 @@ module.factory(
          * This method returns no data.
          */
         "prototype$__delete__accessTokens": {
-          url: urlBase + "/Yes/:id/accessTokens",
+          url: urlBase + "/admin/:id/accessTokens",
           method: "DELETE"
         },
 
@@ -5092,7 +5092,7 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "prototype$__count__accessTokens": {
-          url: urlBase + "/Yes/:id/accessTokens/count",
+          url: urlBase + "/admin/:id/accessTokens/count",
           method: "GET"
         },
 
@@ -5130,7 +5130,7 @@ module.factory(
          * </em>
          */
         "create": {
-          url: urlBase + "/Yes",
+          url: urlBase + "/admin",
           method: "POST"
         },
 
@@ -5169,7 +5169,7 @@ module.factory(
          */
         "createMany": {
           isArray: true,
-          url: urlBase + "/Yes",
+          url: urlBase + "/admin",
           method: "POST"
         },
 
@@ -5202,7 +5202,7 @@ module.factory(
          * </em>
          */
         "patchOrCreate": {
-          url: urlBase + "/Yes",
+          url: urlBase + "/admin",
           method: "PATCH"
         },
 
@@ -5240,7 +5240,7 @@ module.factory(
          * </em>
          */
         "replaceOrCreate": {
-          url: urlBase + "/Yes/replaceOrCreate",
+          url: urlBase + "/admin/replaceOrCreate",
           method: "POST"
         },
 
@@ -5272,7 +5272,7 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/Yes/:id/exists",
+          url: urlBase + "/admin/:id/exists",
           method: "GET"
         },
 
@@ -5307,7 +5307,7 @@ module.factory(
          * </em>
          */
         "findById": {
-          url: urlBase + "/Yes/:id",
+          url: urlBase + "/admin/:id",
           method: "GET"
         },
 
@@ -5344,7 +5344,7 @@ module.factory(
          * </em>
          */
         "replaceById": {
-          url: urlBase + "/Yes/:id/replace",
+          url: urlBase + "/admin/:id/replace",
           method: "POST"
         },
 
@@ -5378,7 +5378,7 @@ module.factory(
          */
         "find": {
           isArray: true,
-          url: urlBase + "/Yes",
+          url: urlBase + "/admin",
           method: "GET"
         },
 
@@ -5411,7 +5411,7 @@ module.factory(
          * </em>
          */
         "findOne": {
-          url: urlBase + "/Yes/findOne",
+          url: urlBase + "/admin/findOne",
           method: "GET"
         },
 
@@ -5445,7 +5445,7 @@ module.factory(
          * The number of instances updated
          */
         "updateAll": {
-          url: urlBase + "/Yes/update",
+          url: urlBase + "/admin/update",
           method: "POST"
         },
 
@@ -5478,7 +5478,7 @@ module.factory(
          * </em>
          */
         "deleteById": {
-          url: urlBase + "/Yes/:id",
+          url: urlBase + "/admin/:id",
           method: "DELETE"
         },
 
@@ -5510,7 +5510,7 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/Yes/count",
+          url: urlBase + "/admin/count",
           method: "GET"
         },
 
@@ -5545,7 +5545,7 @@ module.factory(
          * </em>
          */
         "prototype$patchAttributes": {
-          url: urlBase + "/Yes/:id",
+          url: urlBase + "/admin/:id",
           method: "PATCH"
         },
 
@@ -5582,7 +5582,7 @@ module.factory(
          *  - `changes` – `{ReadableStream=}` - 
          */
         "createChangeStream": {
-          url: urlBase + "/Yes/change-stream",
+          url: urlBase + "/admin/change-stream",
           method: "POST"
         },
 
@@ -5638,7 +5638,7 @@ module.factory(
               return response.resource;
             }
           },
-          url: urlBase + "/Yes/login",
+          url: urlBase + "/admin/login",
           method: "POST"
         },
 
@@ -5680,7 +5680,7 @@ module.factory(
               return response.resource;
             }
           },
-          url: urlBase + "/Yes/logout",
+          url: urlBase + "/admin/logout",
           method: "POST"
         },
 
@@ -5714,7 +5714,7 @@ module.factory(
          * This method returns no data.
          */
         "confirm": {
-          url: urlBase + "/Yes/confirm",
+          url: urlBase + "/admin/confirm",
           method: "GET"
         },
 
@@ -5749,7 +5749,7 @@ module.factory(
          * This method returns no data.
          */
         "resetPassword": {
-          url: urlBase + "/Yes/reset",
+          url: urlBase + "/admin/reset",
           method: "POST"
         },
 
@@ -5774,7 +5774,7 @@ module.factory(
          *   from the server.
          */
         "getCurrent": {
-           url: urlBase + "/Yes" + "/:id",
+           url: urlBase + "/admin" + "/:id",
            method: "GET",
            params: {
              id: function() {

@@ -8,16 +8,8 @@
 
 angular
   .module('app')
-  .controller('AllGroupController', ['$scope', 'Taskgroup', function($scope,
-                                                                     Taskgroup) {
-    $scope.taskgroup = Taskgroup.find({
-      filter: {
-        include: [
-          'task',
-          'simpleuser'
-        ]
-      }
-    });
+  .controller('AllGroupController', ['$scope', '$rootScope', function($scope, $rootScope) {
+    $scope.screenName = $rootScope.currentUser.email;
   }])
   .controller('AddReviewController', ['$scope', 'CoffeeShop', 'Review',
     '$state', function($scope, CoffeeShop, Review, $state) {
@@ -99,11 +91,7 @@ angular
         filter: {
           where: {
             simpleUserId: $rootScope.currentUser.id
-          },
-          include: [
-            'task',
-            'simpleuser'
-          ]
+          }
         }
       });
     }])

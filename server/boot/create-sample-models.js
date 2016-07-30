@@ -10,12 +10,12 @@ module.exports = function (app) {
     //tasks: async.apply(createTasks),
     simpleusers: async.apply(createSimpleUsers),
     admins: async.apply(createAdmin),
-    taskgroups: async.apply(createTaskGroups)
+    //taskgroups: async.apply(createTaskGroups)
   }, function (err, results) {
     if (err) throw err;
-    createTasks(results.taskgroups, function (err) {
+   /* createTasks(results.taskgroups, function (err) {
       console.log('> models created sucessfully');
-    });
+    });*/
   });
   //create tasks
   function createTasks(taskgroups, cb) {
