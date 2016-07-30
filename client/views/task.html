@@ -1,11 +1,12 @@
 <section>
   <div class="container">
     <form class="form-entity" name="form" ng-submit="submitForm()">
-      <input type="title" placeholder="Title" required autofocus ng-model="task.title">
+      <input type="title" class="form-control" placeholder="Title" required autofocus ng-model="task.title">
+      <textarea class="form-control" placeholder="Description" ng-model="task.description"></textarea>
       <label class="checkbox">
-        <input type="checkbox" ng-model="task.status"> Status
+        <input type="checkbox" ng-model="task.status"> Active
       </label>
       <button class="btn btn-lg btn-primary btn-block" type="submit">{{action}} task</button>
     </form>
   </div>
-<section>
+  <section>
