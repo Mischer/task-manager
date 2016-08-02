@@ -60,7 +60,7 @@ angular
         authenticate: true
       })
       .state('main.create-task', {
-        url: '/create-task',
+        url: '/create-task/:groupId',
         templateUrl: 'views/task.html',
         controller: 'CreateTaskController',
         authenticate: true

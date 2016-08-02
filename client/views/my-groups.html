@@ -19,6 +19,8 @@
             <div class="actions" ng-show="currentUser">
               <button ui-sref="main.edit-group({ id: g.id })">Edit</button>
               <button a ui-sref="main.delete-group({ id: g.id })">Delete</button>
+              <button a ui-sref="main.create-task({ groupId: g.id })">Create task</button>
+              <button a ui-sref="main.view-tasks({ groupId: g.id })">View task</button>
             </div>
           </td>
         </tr>

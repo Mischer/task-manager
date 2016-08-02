@@ -11,7 +11,21 @@ angular
   .controller('MainController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.screenName = $rootScope.currentUser.email;
   }])
+  .controller('CreateGroupController', ['$scope', 'Taskgroup', '$state',
+    function ($scope, Taskgroup, $state) {
+      $scope.action = 'Add';
 
+      $scope.submitForm = function () {
+        Taskgroup.create({
+          title: $scope.taskGroup.title,
+          status: $scope.taskGroup.status
+        })
+          .$promise
+          .then(function () {
+            $state.go('main.my-groups');
+          });
+      };
+    }])
   .controller('DeleteGroupController', ['$scope', 'Taskgroup', '$state',
     '$stateParams', function ($scope, Taskgroup, $state, $stateParams) {
       Taskgroup.deleteById({id: $stateParams.id})
@@ -63,31 +77,17 @@ angular
         }
       });
     }])
-  .controller('CreateGroupController', ['$scope', 'Taskgroup', '$state',
-    function ($scope, Taskgroup, $state) {
-      $scope.action = 'Add';
 
-      $scope.submitForm = function () {
-        Taskgroup.create({
-          title: $scope.taskGroup.title,
-          status: $scope.taskGroup.status
-        })
-          .$promise
-          .then(function () {
-            $state.go('main.my-groups');
-          });
-      };
-    }])
-  .controller('CreateTaskController', ['$scope', 'Task', '$state',
-    function ($scope, Task, $state) {
+  .controller('CreateTaskController', ['$scope', 'Task', '$stateParams', '$state',
+    function ($scope, Task, $stateParams, $state) {
       $scope.action = 'Add';
 
       $scope.submitForm = function () {
         Task.create({
           title: $scope.task.title,
-          status: $scope.task.status
-        })
-          .$promise
+          status: $scope.task.status,
+          taskGroupId: $stateParams.groupId
+        }).$promise
           .then(function () {
             $state.go('main.my-tasks');
           });
