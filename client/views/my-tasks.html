@@ -7,12 +7,21 @@
         <tr>
           <th>Title</th>
           <th>Status</th>
+          <th>Description</th>
+          <th>Actions</th>
         </tr>
         </thead>
-        <tbody ng-repeat="t in task.slice().reverse()">
+        <tbody ng-repeat="t in tasks.slice().reverse()">
         <tr>
           <td>{{t.title}}</td>
           <td>{{t.status}}</td>
+          <td>{{t.description}}</td>
+          <td>
+            <div class="actions" ng-show="currentUser">
+              <button ui-sref="main.edit-task({ id: g.id })">Edit</button>
+              <button a ui-sref="main.delete-task({ id: g.id })">Delete</button>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>

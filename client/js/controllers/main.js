@@ -64,20 +64,25 @@ angular
         }
       });
     }])
-  .controller('MyTasksController', ['$scope', 'Task', '$rootScope',
-    function ($scope, Task, $rootScope) {
-      $scope.tasks = Task.find({
+  .controller('MyTasksController', ['$scope', 'Taskgroup', 'Task', '$rootScope',
+    function ($scope, Taskgroup, Task, $rootScope) {
+      $scope.tasks = [];
+      Taskgroup.find({
         filter: {
-          /*          where: {
-           taskGroupId: $rootScope.currentUser.id
-           },*/
-          include: [
-            'taskgroup'
-          ]
+          fields: {id:true},
+          where: {
+            simpleUserId: $rootScope.currentUser.id
+          }
         }
-      });
+      }).$promise
+        .then(function (taskgroups) {
+          $scope.tasks = Task.find({
+            filter: {
+              where: {taskGroupId: {inq: parseIds(taskgroups)}}
+            }
+          });
+        });
     }])
-
   .controller('CreateTaskController', ['$scope', 'Task', '$stateParams', '$state',
     function ($scope, Task, $stateParams, $state) {
       $scope.action = 'Add';
@@ -86,6 +91,7 @@ angular
         Task.create({
           title: $scope.task.title,
           status: $scope.task.status,
+          description: $scope.task.description,
           taskGroupId: $stateParams.groupId
         }).$promise
           .then(function () {
@@ -93,3 +99,11 @@ angular
           });
       };
     }]);
+
+function parseIds(taskgroups) {
+  ids =[];
+  angular.forEach(taskgroups, function(tg) {
+    ids.push(tg.id);
+  });
+  return ids;
+}
