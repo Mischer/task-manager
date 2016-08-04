@@ -98,6 +98,34 @@ angular
             $state.go('main.my-tasks');
           });
       };
+    }])
+  .controller('DeleteTaskController', ['$scope', 'Task', '$state',
+  '$stateParams', function ($scope, Task, $state, $stateParams) {
+      Task.deleteById({id: $stateParams.id})
+      .$promise
+      .then(function () {
+        $state.go('main.my-tasks');
+      });
+  }])
+  .controller('EditTaskController', ['$scope', '$q', 'Task', '$stateParams', '$state',
+    function ($scope, $q, Task, $stateParams, $state) {
+      $scope.action = 'Edit';
+      $scope.task = {};
+
+      $q.all([
+        Task.findById({id: $stateParams.id}).$promise
+      ])
+        .then(function (data) {
+          $scope.task = data[0];
+        });
+
+      $scope.submitForm = function () {
+        $scope.task
+          .$save()
+          .then(function (task) {
+            $state.go('main.my-tasks');
+          });
+      };
     }]);
 
 function parseIds(taskgroups) {

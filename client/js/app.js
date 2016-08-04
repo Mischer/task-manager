@@ -65,6 +65,17 @@ angular
         controller: 'CreateTaskController',
         authenticate: true
       })
+      .state('main.edit-task', {
+        url: '/edit-task/:id',
+        templateUrl: 'views/task.html',
+        controller: 'EditTaskController',
+        authenticate: true
+      })
+      .state('main.delete-task', {
+        url: '/delete-task/:id',
+        controller: 'DeleteTaskController',
+        authenticate: true
+      })
       .state('sign-up', {
         url: '/sign-up',
         templateUrl: 'views/sign-up-form.html',
