@@ -29,9 +29,11 @@ angular
        });
     }
 
-    function register(email, password) {
+    function register(firstName, lastName, email, password) {
       return User
         .create({
+         firstname: firstName,
+         lastname: lastName,
          email: email,
          password: password
        })

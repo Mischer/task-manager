@@ -28,13 +28,13 @@ angular
   }])
   .controller('SignUpController', ['$scope', 'AuthService', '$state',
       function($scope, AuthService, $state) {
-    $scope.user = {
+/*    $scope.user = {
       email: 'baz@qux.com',
       password: 'bazqux'
-    };
+    };*/
 
     $scope.register = function() {
-      AuthService.register($scope.user.email, $scope.user.password)
+      AuthService.register($scope.user.firstname, $scope.user.lastname, $scope.user.email, $scope.user.password)
         .then(function() {
           $state.transitionTo('sign-up-success');
         });
