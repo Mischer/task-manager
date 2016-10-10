@@ -24,7 +24,7 @@
     "nsp": "^2.1.0",
     "mocha": "*",
     "chai": "*",
-    "supertest": "*"
+    "superagent" : "*"
 
   },
   "repository": {

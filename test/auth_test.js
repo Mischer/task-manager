@@ -36,20 +36,3 @@ describe('Authentication', function() {
 
 });
 
-
-/*describe('/#/main/my-groups', function() {
-
-  it('returns my groups as JSON', function(done) {
-    api.get('/#/main/my-groups')
-      .set('x-api-key', '123myapikey')
-      .auth('correct', 'credentials')
-      .expect(200)
-      .expect('Content-Type', /json/)
-      .end(function(err, res) {
-        if (err) return done(err);
-        res.body.should.have.property('posts').and.be.instanceof(Array);
-        done();
-      });
-  });
-
-});*/
