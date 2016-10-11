@@ -43,9 +43,5 @@
   "Simpleuser": {
     "dataSource": "mongods",
     "public": true
-  },
-  "Admin": {
-    "dataSource": "mongods",
-    "public": true
   }
 }

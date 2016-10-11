@@ -1,5 +1,6 @@
 {
   "name": "Taskgroup",
+  "forceId": false,
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

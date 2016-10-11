@@ -7,28 +7,11 @@ module.exports = function (app) {
   var mongods = app.dataSources.mongods;
   //create all models
   async.parallel({
-    //tasks: async.apply(createTasks),
     simpleusers: async.apply(createSimpleUsers),
-    admins: async.apply(createAdmin),
-    //taskgroups: async.apply(createTaskGroups)
   }, function (err, results) {
     if (err) throw err;
-   /* createTasks(results.taskgroups, function (err) {
-      console.log('> models created sucessfully');
-    });*/
+
   });
-  //create tasks
-  function createTasks(taskgroups, cb) {
-    mongods.automigrate('Task', function (err) {
-      if (err) return cb(err);
-      var task = app.models.Task;
-      task.create([
-        {title: 'Issue1', status: 'false', taskGroupIdd: taskgroups[0].id},
-        {title: 'Issue2', status: 'false', taskGroupIdd: taskgroups[0].id},
-        {title: 'Issue3', status: 'false', taskGroupIdd: taskgroups[1].id}
-      ], cb);
-    });
-  }
 
   //create simpleUsers
   function createSimpleUsers(cb) {
@@ -42,45 +25,4 @@ module.exports = function (app) {
     });
   }
 
-  //create Admin
-  function createAdmin(cb) {
-    mongods.automigrate('Admin', function (err) {
-      if (err) return cb(err);
-      var admin = app.models.Admin;
-      admin.create([
-        {firstname: 'Vitaly', lastname: 'Rydvan', email: 'v.rydvan@gmail.com', password: '3'}
-      ], cb);
-    });
-  }
-
-  //create taskgroups
-  function createTaskGroups(cb) {
-    mongods.automigrate('Taskgroup', function (err) {
-      if (err) return cb(err);
-      var taskgroup = app.models.Taskgroup;
-      taskgroup.create([
-        {
-          title: 'First group',
-          status: 'false'
-        },
-        {
-          title: 'Second group',
-          status: 'false'
-        }
-      ], cb);
-    });
-  }
-
-  //create Task and Task group relations
-  /* function createTaskRelations(taskgroups, cb) {
-   mongods.autoupdate('Task', function(err) {
-   if (err) return cb(err);
-   var task = app.models.Task;
-   task.updateAll([
-   {
-   taskGroupIdd: taskgroups[0].id
-   }
-   ], cb);
-   });
-   }*/
 };
