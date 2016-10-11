@@ -24,6 +24,6 @@
       "foreignKey": "simpleUserId"
     }
   },
-  "acls": [],//login and registration
+  "acls": [],
   "methods": {}
 }
