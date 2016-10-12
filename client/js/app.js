@@ -59,6 +59,11 @@ angular
         controller: 'DeleteGroupController',
         authenticate: true
       })
+      .state('main.complete-tasks', {
+        url: '/complete-tasks/:id',
+        controller: 'CompleteTasksController',
+        authenticate: true
+      })
       .state('main.create-task', {
         url: '/create-task/:groupId',
         templateUrl: 'views/task.html',

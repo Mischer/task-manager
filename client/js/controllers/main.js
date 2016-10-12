@@ -64,6 +64,15 @@ angular
         }
       });
     }])
+  .controller('CompleteTasksController', ['$scope', 'Taskgroup', 'Task', '$state',
+    '$stateParams', function ($scope, Taskgroup, Task, $state, $stateParams) {
+      Task.updateAll({
+        where: {taskGroupId: $stateParams.id}
+      }, {status: true}, function(err, results){
+        $state.go('main.my-groups');
+        alert('All tasks updated successfully.');
+      });
+    }])
   .controller('MyTasksController', ['$scope', 'Taskgroup', 'Task', '$rootScope',
     function ($scope, Taskgroup, Task, $rootScope) {
       $scope.tasks = [];
