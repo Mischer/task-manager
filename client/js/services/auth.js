@@ -5,13 +5,13 @@
 
 angular
   .module('app')
-  .factory('AuthService', ['Simpleuser', '$q', '$rootScope', function(User, $q,
-      $rootScope) {
+  .factory('AuthService', ['Simpleuser', '$q', '$rootScope', function (User, $q,
+                                                                       $rootScope) {
     function login(email, password) {
       return User
         .login({email: email, password: password})
         .$promise
-        .then(function(response) {
+        .then(function (response) {
           $rootScope.currentUser = {
             id: response.user.id,
             tokenId: response.id,
@@ -22,22 +22,22 @@ angular
 
     function logout() {
       return User
-       .logout()
-       .$promise
-       .then(function() {
-         $rootScope.currentUser = null;
-       });
+        .logout()
+        .$promise
+        .then(function () {
+          $rootScope.currentUser = null;
+        });
     }
 
     function register(firstName, lastName, email, password) {
       return User
         .create({
-         firstname: firstName,
-         lastname: lastName,
-         email: email,
-         password: password
-       })
-       .$promise;
+          firstname: firstName,
+          lastname: lastName,
+          email: email,
+          password: password
+        })
+        .$promise;
     }
 
     return {

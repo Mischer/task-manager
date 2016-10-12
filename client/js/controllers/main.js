@@ -69,7 +69,7 @@ angular
       $scope.tasks = [];
       Taskgroup.find({
         filter: {
-          fields: {id:true},
+          fields: {id: true},
           where: {
             simpleUserId: $rootScope.currentUser.id
           }
@@ -100,13 +100,13 @@ angular
       };
     }])
   .controller('DeleteTaskController', ['$scope', 'Task', '$state',
-  '$stateParams', function ($scope, Task, $state, $stateParams) {
+    '$stateParams', function ($scope, Task, $state, $stateParams) {
       Task.deleteById({id: $stateParams.id})
-      .$promise
-      .then(function () {
-        $state.go('main.my-tasks');
-      });
-  }])
+        .$promise
+        .then(function () {
+          $state.go('main.my-tasks');
+        });
+    }])
   .controller('EditTaskController', ['$scope', '$q', 'Task', '$stateParams', '$state',
     function ($scope, $q, Task, $stateParams, $state) {
       $scope.action = 'Edit';
@@ -129,8 +129,8 @@ angular
     }]);
 
 function parseIds(taskgroups) {
-  ids =[];
-  angular.forEach(taskgroups, function(tg) {
+  ids = [];
+  angular.forEach(taskgroups, function (tg) {
     ids.push(tg.id);
   });
   return ids;
